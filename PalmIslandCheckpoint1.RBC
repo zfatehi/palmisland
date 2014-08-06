@@ -5,14 +5,9 @@
 
 
 //*void move(B, C, time){
-
 motor[motorB] = B;
-
 motor[motorC] =C;
-
 wait1Msec(time);
-
-
 }*//
 
 
