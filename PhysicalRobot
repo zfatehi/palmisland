@@ -69,3 +69,13 @@ task main()
 
   }
 }
+
+/* taskmain()
+{
+if(joy1Btn(1)==1)
+ {
+	for(int i=60; i=10; i=i-2)
+    servo[armServo] = i;
+    wait1M(50);
+ }
+}*/
