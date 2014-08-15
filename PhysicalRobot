@@ -15,7 +15,7 @@
 
 task main()
 {
-  while (1 == 1)
+  while(true)
   {
     getJoystickSettings(joystick);
     motor[motorD] = joystick.joy1_y2;
@@ -40,7 +40,7 @@ task main()
     /* Button 1 - Opens claw */
     if(joy1Btn(1) == 1)
     {
-      while (nMotorEncoder[claw] < 70)
+      while (nMotorEncoder[claw] < 50)
       {
         motor[claw] = 25;
         wait1Msec(10);
@@ -51,11 +51,9 @@ task main()
     /* Button 3 - Closes claw */
     if(joy1Btn(3) == 1)
     {
-
-        motor[claw] = -25;
-        wait1Msec(20);
+        motor[claw] = -50;
+        wait1Msec(10);
         motor[claw] = 0;
     }
-
   }
 }
