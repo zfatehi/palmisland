@@ -20,7 +20,7 @@ task main()
     getJoystickSettings(joystick);
     motor[motorD] = joystick.joy1_y2;
     motor[motorE] = joystick.joy1_y1;
-    
+
     /* Button 8 - Moves arm up */
     if(joy1Btn(8) == 1)
     {
@@ -28,36 +28,34 @@ task main()
       servo[armServo2] = 190;
       wait1Msec(1000);
     }
-    
+
     /* Button 7 - Moves arm down */
     if(joy1Btn(7) == 1)
     {
-      servo[armServo1] = 160;
-      servo[armServo2] = 110;
+      servo[armServo1] = 155;
+      servo[armServo2] = 115;
       wait1Msec(1000);
     }
-    
+
     /* Button 1 - Opens claw */
     if(joy1Btn(1) == 1)
     {
-      while (nMotorEncoder[claw] < 50) 
+      while (nMotorEncoder[claw] < 70)
       {
         motor[claw] = 25;
         wait1Msec(10);
-        motor[claw] = 0;        
+        motor[claw] = 0;
       }
     }
-    
+
     /* Button 3 - Closes claw */
     if(joy1Btn(3) == 1)
     {
-      while (nMotorEncoder[claw] > 0) 
-      {
+
         motor[claw] = -25;
-        wait1Msec(10);
-        motor[claw] = 0;       
-      }
+        wait1Msec(20);
+        motor[claw] = 0;
     }
-    
+
   }
-} 
+}
