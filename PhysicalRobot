@@ -43,7 +43,8 @@ task main()
       while (nMotorEncoder[claw] < 50) 
       {
         motor[claw] = 25;
-        wait1Msec(10);       
+        wait1Msec(10);
+        motor[claw] = 0;        
       }
     }
     
@@ -53,7 +54,8 @@ task main()
       while (nMotorEncoder[claw] > 0) 
       {
         motor[claw] = -25;
-        wait1Msec(10);       
+        wait1Msec(10);
+        motor[claw] = 0;       
       }
     }
     
