@@ -25,7 +25,7 @@ void remoteControl()
 		{
 			motor[armMotor] = 40;
 		}
-		else if(vexRT[Btn6D] == 1 && SensorValue[potentimeter] > 1700)
+		else if(vexRT[Btn6D] == 1 && SensorValue[potentiometer] > 1700)
 		{
 			motor[armMotor] = -40;
 		}
