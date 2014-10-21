@@ -1,3 +1,105 @@
+--------------------------------------------------------------------------------------------------------------------------------
+Omni-Drive Program
+--------------------------------------------------------------------------------------------------------------------------------
+#pragma config(Motor,  port1,          frontRightMotor,    tmotorVex393_HBridge, openLoop)
+#pragma config(Motor,  port2,          rearRightMotor,    tmotorVex393_HBridge, openLoop)
+#pragma config(Motor,  port3,         frontLeftMotor,    tmotorVex393_HBridge, openLoop)
+#pragma config(Motor,  port4,          rearLeftMotor,    tmotorVex393_HBridge, openLoop)
+//Pregenerated code (not real port #'s)
+
+//Remote Control Omnidrive function
+
+void RemoteControlOmnidrive()
+{
+
+  While( 1 == 1 )
+  {
+  
+   //display variables
+   int joy_X_1 = vexRT[ch4];
+   int joy_Y_1 = vexRT[ch3];
+   int joy_X_2 = vexRT[ch1];
+   
+   //vehicle movement
+   motor[frontRightMotor] = joy_Y_1 - joy_X_1 + joy_X_2;
+   motor[frontleftMotor] = joy_Y_1 + joy_X_1 - joy_X_2;
+   motor[rearRightMotor] = -Joy_Y_1 - joy_X_1 - joy_X_2;
+   motor[rearLeftMotor] = -joy_Y_1 + Joy_X_1 + Joy_X_2;
+   
+   //Cap motor power @ 126
+   
+   if(motor[frontRightMotor] >= 126)
+   {
+   
+     motor[frontRightMotor] = 126;
+   
+   }
+   
+   if(motor[frontleftMotor] >= 126)
+   {
+   
+    motor[frontleftMotor] = 126;
+   
+   }
+   
+   if(motor[rearRightMotor] >= 126)
+   {
+   
+    motor[rearRightMotor] = 126;
+   
+   }
+   
+   if(motor[rearLeftMotor] >= 126)
+   {
+   
+    motor[rearLeftMotor] = 126;
+   
+   }
+  
+  //Cap motor power @ -126
+   
+   if(motor[frontRightMotor] <= -126)
+   {
+   
+     motor[frontRightMotor] = -126;
+   
+   }
+   
+   if(motor[frontleftMotor] <= -126)
+   {
+   
+    motor[frontleftMotor] = -126;
+   
+   }
+   
+   if(motor[rearRightMotor] <= -126)
+   {
+   
+    motor[rearRightMotor] = -126;
+   
+   }
+   
+   if(motor[rearLeftMotor] <= -126)
+   {
+   
+    motor[rearLeftMotor] = -126;
+   
+   }
+   
+  }
+  
+}
+
+ Main()
+{
+
+  RemoteControlOmnidrive();
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+Clawbot Program
+--------------------------------------------------------------------------------------------------------------------------------
 #pragma config(Sensor, in1,    potentiometer,  sensorPotentiometer)
 #pragma config(Sensor, dgtl1,  rightEncoder,   sensorQuadEncoder)
 #pragma config(Sensor, dgtl4,  sonarSensor,    sensorSONAR_inch)
@@ -52,5 +154,5 @@ void remoteControl()
 
 task main()
 {
-  
+  remoteControl();
 }
